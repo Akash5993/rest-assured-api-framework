@@ -1,0 +1,15 @@
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+<!-- The suite Maven runs on "mvn test" (pom.xml points here). -->
+<!-- parallel="methods": test methods run at the same time, on up to 3 threads. -->
+<suite name="API Automation Suite" parallel="methods" thread-count="3">
+
+    <!-- A test groups the classes to run. -->
+    <test name="API Tests">
+        <classes>
+            <class name="com.api.tests.AuthTest"/>
+            <class name="com.api.tests.BookingTest"/>
+            <class name="com.api.tests.JwtAuthTest"/>
+        </classes>
+    </test>
+
+</suite>
