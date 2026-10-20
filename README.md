@@ -1,5 +1,7 @@
 # API Automation Framework: REST Assured + Java + TestNG
 
+[![API Tests](https://github.com/Akash5993/rest-assured-api-framework/actions/workflows/api-tests.yml/badge.svg)](https://github.com/Akash5993/rest-assured-api-framework/actions/workflows/api-tests.yml)
+
 An API test automation framework covering two public practice APIs: [Restful Booker](https://restful-booker.herokuapp.com) (booking CRUD with cookie-token auth) and [DummyJSON](https://dummyjson.com) (real JWT authentication with access and refresh tokens).
 
 ## Tech stack
@@ -19,6 +21,13 @@ mvn test
 ```
 
 This runs 16 tests across three classes. Endpoints and the practice APIs' public demo logins are in `src/test/resources/config.properties`.
+
+## Continuous integration
+
+The same suite runs in two CI systems:
+
+- **GitHub Actions (cloud):** `.github/workflows/api-tests.yml` runs `mvn -B clean test` on every push and pull request to `main` and uploads the test reports. The badge above shows the latest result.
+- **Jenkins (self-hosted):** the `Jenkinsfile` polls GitHub for new commits, runs the suite, and publishes the results with a trend chart. Failed tests mark the build UNSTABLE rather than FAILED, so the report is always published.
 
 ## What's tested
 
